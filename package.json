@@ -1,7 +1,9 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "fastsearch-persons-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Interface React bilingue FR/AR pour FastSearch Persons",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
