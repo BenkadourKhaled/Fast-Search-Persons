@@ -1,0 +1,74 @@
+# Dictionnaire SYNTHÉTIQUE de graphies de noms (aucune personne réelle).
+# Format : graphie canonique;variantes...
+# Une ligne = un prénom, un nom ou une expression composée.
+# Surchargeable par fastsearch.dictionary.path (fichier UTF-8).
+
+وليد;Walid;Oualid;Ouelid;Walide;Ouelide;Waleed;Walid
+يوسف;Youssef;Youcef;Yousef;Yusuf;Youssouf;Yousuf
+حسين;Hocine;Houcine;Hossine;Hussein;Husayn;Houssein
+رضوان;Redouane;Radouane;Radwan;Ridwan;Redwan
+سفيان;Sofiane;Soufiane;Sofian;Soufian;Sufyan
+جمال;Djamel;Jamel;Gamal;Jamal;Djamal
+محمد;Mohamed;Mohammed;Muhammad;Mouhamed;Mohammad;Mohamad
+عبد القادر;Abdelkader;Abd El Kader;Abdel Kader;AbdElKader;Abdel-Kader
+عبد الرحمان;Abderrahmane;Abderrahman;Abd Errahmane;Abdel Rahmane;Abderrahmane
+عبد الله;Abdellah;Abd Allah;Abdullah;Abdallah;Abdellah
+ياسين;Yacine;Yassine;Yassin;Yasine;Yacine
+فاطمة;Fatima;Fatma;Fathima;Fatimah;Fatema
+خديجة;Khadidja;Khadija;Khadidjah;Khadija
+بوعلام;Boualem;Boualam;Boualeme;Boualem
+علي;Ali;Aly;Ali
+كريم;Karim;Kerim;Kareem;Karim
+ناصر;Nacer;Nasser;Naser;Nassar
+رشيد;Rachid;Rashid;Rachide;Rasheed
+زينب;Zineb;Zeinab;Zaynab;Zineb;Zainab
+عمر;Omar;Oumar;Omer
+أحمد;Ahmed;Ahmad;Ahmet;Ahmed
+مصطفى;Mustapha;Moustapha;Mustafa
+أمين;Amine;Amin;Ameen
+سارة;Sara;Sarah;Sarra
+مريم;Meriem;Meryem;Maryam;Miriam;Mariem
+ليلى;Leila;Layla;Lila;Leïla
+نور;Nour;Noor;Noure
+هدى;Houda;Huda;Houda
+سمير;Samir;Sameer;Samir
+سليم;Salim;Selim;Saleem
+يحيى;Yahia;Yahya;Yehia
+إبراهيم;Ibrahim;Ibrahima;Ibrahem;Ebrahim
+عيسى;Aissa;Issa;Aïssa
+موسى;Moussa;Musa;Mousa
+بلقاسم;Belkacem;Belkassem;Belkacem
+بوزيد;Bouzid;Bouzide;Bouzid
+حمادي;Hamadi;Hammadi;Hamady
+سعيد;Said;Saeed;Saïd
+فؤاد;Fouad;Fuad;Foued
+نبيل;Nabil;Nabeel;Nabil
+نجاة;Nadjat;Najat;Nadjet
+وردة;Ouarda;Warda;Ouarda
+جميلة;Djamila;Jamila;Djemila
+سعاد;Souad;Suad;Souade
+حنان;Hanane;Hanan;Hanane
+سمية;Soumia;Sumaya;Soumya
+عبد الحق;Abdelhak;Abd El Hak;Abdel Haq;Abdelhak
+عبد الحميد;Abdelhamid;Abd El Hamid;Abdel Hamid;Abdelhamid
+عبد العزيز;Abdelaziz;Abd El Aziz;Abdel Aziz;Abdelaziz
+عبد المالك;Abdelmalek;Abd El Malek;Abdel Malek;Abdelmalek
+بن علي;Benali;Ben Ali;Benali;Ben-Ali
+بوقرة;Bougherra;Boughera;Bougherra
+لونيس;Lounes;Lounès;Lounnes;Lounis
+مقران;Mokrane;Mokran;Mokrane
+ماسينيسا;Massinissa;Massinisa;Massinissa
+يانيس;Yanis;YannIs;Yanis;Yanis
+كاهينة;Kahina;Kahina;Kahena
+ديهيا;Dihya;Dihia;Dihya
+أمزيان;Ameziane;Amziane;Amezian
+أمازيغ;Amazigh;Amazighe;Amazigh
+إيدير;Idir;Yidir;Idir
+فرنسا;France;Francia;France
+جان;Jean;Jeanne;Jean
+ماري;Marie;Maria;Mary
+بيير;Pierre;Pierrot;Pierre
+ميشيل;Michel;Michele;Michel
+ناتالي;Nathalie;Natalie;Nathalie
+كلود;Claude;Claudie;Claude
+فرنسوا;Francois;François;Francois
