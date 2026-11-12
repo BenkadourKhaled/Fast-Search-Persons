@@ -4,6 +4,9 @@
 
 **On-premise person matching engine — Arabic / Latin, explainable and access-isolated.**
 
+**Version 0.1.0 — first public release.**
+
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](CHANGELOG.md)
 [![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)](https://openjdk.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.13-6DB33F?logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Apache Lucene](https://img.shields.io/badge/Apache%20Lucene-9.12.2-0B5CAB)](https://lucene.apache.org/)
@@ -1121,6 +1124,7 @@ backend/
 │   └── test/                        # JUnit 5, Spring Boot Test, ArchUnit
 ├── docker-compose.yml
 ├── Dockerfile
+├── CHANGELOG.md
 ├── LICENSE
 ├── LIMITS.md
 ├── README.md
@@ -1133,6 +1137,10 @@ frontend/
 │   ├── lib/                         # API client, auth, display
 │   ├── App.tsx
 │   └── types.ts
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── README_EN.md
 ├── package.json
 └── vite.config.ts
 ```

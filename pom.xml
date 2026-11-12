@@ -13,7 +13,7 @@
 
     <groupId>com.fastsearch</groupId>
     <artifactId>fastsearch-persons</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>FastSearch Persons</name>
     <description>Moteur de recherche de personnes on-premise (candidats, jamais identifications)</description>
 

@@ -7,6 +7,9 @@ Lucene 9.12. Le moteur ne rend jamais une « identification » : il classe des
 > Toutes les données livrées avec le projet sont **synthétiques**. Aucun nom,
 > aucune date et aucun identifiant ne provient d'une personne réelle.
 
+> Version **0.1.0** — première version publique. Voir le
+> [journal des modifications](CHANGELOG.md).
+
 > Présentation GitHub complète : [français](README_GITHUB.md) · [English](README_GITHUB_EN.md)
 
 ## Ressources
@@ -18,6 +21,7 @@ Lucene 9.12. Le moteur ne rend jamais une « identification » : il classe des
   anglais.
 - [db/person_source_data.sql](db/person_source_data.sql) — export SQL des
   **196 personnes synthétiques** de `public.person_source` (UTF-8, 196 INSERT).
+- [CHANGELOG.md](CHANGELOG.md) — historique des versions.
 - [LICENSE](LICENSE) — licence MIT du projet.
 
 ## Principes
