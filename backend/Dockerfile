@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # --- Construction -----------------------------------------------------------
-FROM maven:3.9-eclipse-temurin-17 AS build
+FROM maven:3.9-eclipse-temurin-26 AS build
 WORKDIR /workspace
 
 # Les dépendances sont mises en cache tant que le pom.xml ne change pas.
