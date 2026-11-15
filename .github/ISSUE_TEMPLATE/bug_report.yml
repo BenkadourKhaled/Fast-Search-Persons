@@ -1,0 +1,74 @@
+name: Bug report
+description: Signaler un comportement reproductible
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de ne pas inclure de données personnelles réelles, de secrets ou
+        d'identifiants de production dans ce rapport.
+
+        Pour une vulnérabilité de sécurité, utilisez le signalement privé
+        décrit dans SECURITY.md, pas une issue publique.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Que s'est-il passé ?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes de reproduction
+      placeholder: |
+        1. Démarrer le backend...
+        2. Effectuer une recherche...
+        3. Observer...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Composant
+      options:
+        - Backend (API, recherche, index)
+        - Frontend (interface, i18n, pagination)
+        - Docker / déploiement
+        - Documentation
+        - Autre
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version ou commit
+      placeholder: "0.1.0 ou hash du commit"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environnement
+      options:
+        - Local (H2)
+        - Local (PostgreSQL)
+        - Docker Compose
+        - Autre
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs utiles
+      description: Supprimer les secrets, jetons et données personnelles.
+      render: shell
+    validations:
+      required: false

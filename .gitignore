@@ -1,6 +1,5 @@
 # Build backend
 backend/target/
-backend/${project.build.directory}/
 backend/*.class
 backend/data/
 backend/logs/
@@ -12,14 +11,24 @@ backend/*.trace.db
 frontend/node_modules/
 frontend/dist/
 frontend/dist-ssr/
+frontend/coverage/
 frontend/logs/
 frontend/*.log
 
-# Environnements locaux
+# Environnements locaux et secrets
+.env
+.env.local
+.env.*.local
 backend/.env
+backend/.env.local
+backend/.env.*.local
 frontend/.env
 frontend/.env.local
 frontend/.env.*.local
+
+# Sauvegardes locales
+*.dump
+*.sql.gz
 
 # IDE et système
 .idea/

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FastSearch Persons">
+  <rect width="64" height="64" rx="14" fill="#0F766E" />
+  <circle cx="26" cy="24" r="8" fill="#F8FAFC" />
+  <path d="M12 49c0-8.3 6.3-15 14-15s14 6.7 14 15" fill="#F8FAFC" />
+  <circle cx="45" cy="43" r="9" fill="none" stroke="#FBBF24" stroke-width="4" />
+  <path d="M51.5 49.5 59 57" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" />
+</svg>
