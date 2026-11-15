@@ -1,0 +1,57 @@
+name: Bug report
+description: Signaler un comportement reproductible
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de ne pas inclure de données personnelles réelles, de secrets ou
+        d'identifiants de production dans ce rapport.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Que s'est-il passé ?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes de reproduction
+      placeholder: |
+        1. Se connecter...
+        2. Ouvrir l'écran...
+        3. Observer...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version ou commit
+      placeholder: "0.1.0 ou hash du commit"
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Langue de l'interface
+      options:
+        - Français
+        - العربية
+        - Les deux
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Messages ou captures utiles
+      description: Supprimer les secrets, jetons et données personnelles.
+    validations:
+      required: false
