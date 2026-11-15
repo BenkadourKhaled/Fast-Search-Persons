@@ -1,0 +1,116 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fastsearch-persons
+  datasource:
+    url: jdbc:h2:file:./data/fastsearch;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  h2:
+    console:
+      enabled: false
+  jackson:
+    default-property-inclusion: non_null
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+fastsearch:
+  dictionary-path: ""
+  index:
+    path: ./data/index
+  search:
+    candidate-limit: 500
+    max-page-size: 100
+    enable-coarse: true
+  sync:
+    batch-size: 500
+    table: person_source
+    id-column: id
+    last-name-column: last_name
+    first-name-column: first_name
+    birth-date-column: birth_date
+    birth-precision-column: birth_precision
+    birth-flags-column: birth_flags
+    birth-place-column: birth_place
+    father-name-column: father_name
+    mother-name-column: mother_name
+    owner-group-column: owner_group
+    lang-column: lang
+    updated-at-column: updated_at
+    deleted-column: deleted
+  eval:
+    seed: 42
+    count: 40
+    open-search-url: ""
+    open-search-index: persons
+  demo:
+    enabled: true
+  cors:
+    allowed-origins:
+      - http://localhost:5173
+      - http://127.0.0.1:5173
+      - http://localhost:4173
+      - http://127.0.0.1:4173
+  security:
+    # ------------------------------------------------------------------
+    # COMPTES DE TEST — À SUPPRIMER OU REMPLACER EN PRODUCTION.
+    # Les identifiants ci-dessous sont volontairement simples et publics :
+    # ils servent uniquement à la démonstration locale.
+    # ------------------------------------------------------------------
+    default-users: false
+    users:
+      - username: "benkkadour.khaled@gmail.com"
+        password: "KHALED123"
+        roles: [ADMIN]
+        groups: [A, B]
+      - username: "amina.benali@fastsearch.test"
+        password: "Amina-Analyste-2026"
+        roles: [ANALYST]
+        groups: [A]
+      - username: "yassine.merabet@fastsearch.test"
+        password: "Yassine-Analyste-2026"
+        roles: [ANALYST]
+        groups: [B]
+      - username: "sara.haddad@fastsearch.test"
+        password: "Sara-Lecteur-2026"
+        roles: [READER]
+        groups: [A]
+      - username: "karim.bouzid@fastsearch.test"
+        password: "Karim-Lecteur-2026"
+        roles: [READER]
+        groups: [B]
+
+logging:
+  level:
+    root: INFO
+    com.fastsearch.persons: INFO

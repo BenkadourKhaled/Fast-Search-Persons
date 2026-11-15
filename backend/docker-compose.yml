@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fastsearch
+      POSTGRES_USER: fastsearch
+      POSTGRES_PASSWORD: ${FASTSEARCH_DB_PASSWORD:-fastsearch}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fastsearch -d fastsearch"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  fastsearch:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: postgres
+      FASTSEARCH_DB_URL: jdbc:postgresql://postgres:5432/fastsearch
+      FASTSEARCH_DB_USER: fastsearch
+      FASTSEARCH_DB_PASSWORD: ${FASTSEARCH_DB_PASSWORD:-fastsearch}
+      FASTSEARCH_INDEX_PATH: /app/data/index
+      # Données synthétiques de démonstration. À passer à false en production.
+      FASTSEARCH_DEMO_ENABLED: ${FASTSEARCH_DEMO_ENABLED:-true}
+      FASTSEARCH_SECURITY_DEFAULT_USERS: "true"
+      JAVA_OPTS: "-XX:MaxRAMPercentage=75"
+    volumes:
+      - indexdata:/app/data/index
+
+volumes:
+  pgdata:
+  indexdata:

@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: ${FASTSEARCH_DB_URL:jdbc:postgresql://localhost:5432/fastsearch}
+    username: ${FASTSEARCH_DB_USER:fastsearch}
+    password: ${FASTSEARCH_DB_PASSWORD:fastsearch}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+fastsearch:
+  demo:
+    # Jeu synthétique de 196 personnes, activé par défaut pour les tests locaux.
+    enabled: ${FASTSEARCH_DEMO_ENABLED:true}
+  security:
+    # Comptes persistés dans PostgreSQL (fastsearch_users / fastsearch_authorities).
+    store: ${FASTSEARCH_SECURITY_STORE:jdbc}
+  index:
+    path: ${FASTSEARCH_INDEX_PATH:./data/index}
+
+logging:
+  level:
+    com.fastsearch.persons: INFO

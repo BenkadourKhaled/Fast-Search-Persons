@@ -1,0 +1,21 @@
+# Build
+target/
+${project.build.directory}/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Runtime data
+data/
+logs/
+*.log
+*.mv.db
+*.trace.db
+
+# Environment
+.env
+.env.*
