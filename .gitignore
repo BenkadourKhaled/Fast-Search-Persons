@@ -1,0 +1,30 @@
+# Build backend
+backend/target/
+backend/${project.build.directory}/
+backend/*.class
+backend/data/
+backend/logs/
+backend/*.log
+backend/*.mv.db
+backend/*.trace.db
+
+# Build frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/logs/
+frontend/*.log
+
+# Environnements locaux
+backend/.env
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# IDE et système
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+*.sw?
