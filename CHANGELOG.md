@@ -16,9 +16,13 @@ Première version publique.
 - Affichage bilingue français/arabe avec mise en page RTL.
 - Sélecteur de langue persistant dans l'en-tête, la connexion et les paramètres.
 - Résultats avec score, niveau de confiance et explications détaillées.
-- Fiche candidat, pagination et états de chargement/erreur.
+- Fiche candidat, pagination serveur numérotée avec choix de la taille de page
+  et états de chargement/erreur.
 - Administration de l'index, journal d'audit et panneau d'évaluation.
 - Client API REST réel, sans données simulées côté frontend.
+- Tests unitaires Vitest sur l'i18n, l'affichage et les niveaux de confiance.
+- Intégration continue GitHub Actions et Dependabot.
+- Image Docker Nginx avec proxy same-origin et en-têtes de sécurité.
 - Documentation française et anglaise et licence MIT.
 
 ### Sécurité

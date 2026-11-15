@@ -304,6 +304,7 @@ function MainApp() {
             onChange={setParams}
             onSubmit={() => {
               setPage(1);
+              setConfidenceFilter('ALL');
               void runSearch(params, 1, pageSize);
             }}
             onReset={reset}
@@ -430,7 +431,7 @@ function MainApp() {
               </div>
             )}
 
-            {response.totalPages > 1 && (
+            {response.total > 0 && (
               <div className="mt-6">
                 <Pagination
                   page={page}

@@ -16,6 +16,7 @@ explanation.
 - Bilingual **French / Arabic** interface with automatic RTL layout.
 - Persisted language choice and `Noto Naskh Arabic` support.
 - Result cards with score, confidence and field-level explanations.
+- Server-side pagination with numbered navigation and page-size selection.
 - Detailed candidate panel.
 - Index administration: statistics, reindexing and synchronization.
 - Audit log and synthetic evaluation panel.
@@ -59,6 +60,30 @@ npm run dev
 | `npm run preview` | Preview the production build |
 | `npm run typecheck` | TypeScript check |
 | `npm run lint` | ESLint analysis |
+| `npm test` | Vitest unit tests |
+| `npm run test:watch` | Tests in watch mode |
+
+## Quality and CI
+
+- Unit tests for i18n, display labels and confidence levels.
+- `typecheck`, `lint`, `test` and `build` checks in GitHub Actions.
+- Production dependency audit: `npm audit --omit=dev`.
+- No mock data or demo mode in the API client.
+
+## Docker
+
+The frontend can be served by Nginx with a same-origin proxy to the backend:
+
+```bash
+docker build -t fastsearch-persons-frontend .
+docker run --rm -p 8080:80 \
+  -e BACKEND_UPSTREAM=http://host.docker.internal:8080 \
+  fastsearch-persons-frontend
+```
+
+The final image contains only the static build and Nginx. It adds security
+headers, compression and SPA fallback. On Linux, add
+`--add-host=host.docker.internal:host-gateway` when needed.
 
 ## Configuration
 
@@ -84,6 +109,8 @@ src/
 
 - [README.md](README.md) — version française.
 - [CHANGELOG.md](CHANGELOG.md) — release history.
+- [SECURITY.md](SECURITY.md) — security policy.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — contribution guide.
 - [LICENSE](LICENSE) — MIT license.
 
 ## License

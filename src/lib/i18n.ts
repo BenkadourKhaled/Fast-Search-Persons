@@ -125,6 +125,8 @@ const fr = {
     "chaque résultat est un candidat, jamais une identification. Un score élevé indique une forte similarité, pas une certitude. La décision d'identifier une personne reste humaine et contextuelle.",
 
   'pagination.range': '{from}–{to} sur {total}',
+  'pagination.pageOf': 'Page {page} sur {totalPages}',
+  'pagination.goToPage': 'Aller à la page {page}',
   'pagination.perPage': 'par page',
   'pagination.previous': 'Page précédente',
   'pagination.next': 'Page suivante',
@@ -376,6 +378,8 @@ const ar: Record<TranslationKey, string> = {
     'كل نتيجة مرشح، وليست تحديد هوية. الدرجة العالية تعني تشابهًا قويًا، وليست يقينًا. يبقى قرار تحديد هوية الشخص بشريًا ومرتبطًا بالسياق.',
 
   'pagination.range': '{from}–{to} من {total}',
+  'pagination.pageOf': 'الصفحة {page} من {totalPages}',
+  'pagination.goToPage': 'الانتقال إلى الصفحة {page}',
   'pagination.perPage': 'لكل صفحة',
   'pagination.previous': 'الصفحة السابقة',
   'pagination.next': 'الصفحة التالية',

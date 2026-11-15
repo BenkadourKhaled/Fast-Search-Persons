@@ -164,12 +164,19 @@ function mapSearchResponse(raw: RawSearchResponse, requestedPage: number, reques
   const results = (raw.hits ?? []).map(mapHit);
   const total = Number.isFinite(raw.total) ? raw.total : results.length;
   const size = Number.isFinite(raw.size) && raw.size > 0 ? raw.size : requestedSize;
+  const totalPages = Math.max(1, Math.ceil(total / size));
+  // Le backend renvoie une page 0-based et la ramène à la dernière page si
+  // nécessaire ; on applique la même borne pour rester robuste aux anciennes
+  // versions du serveur.
+  const serverPage =
+    Number.isFinite(raw.page) && raw.page >= 0 ? Math.trunc(raw.page) + 1 : requestedPage;
+  const page = Math.min(Math.max(1, serverPage), totalPages);
   return {
     results,
     total,
-    page: requestedPage,
+    page,
     pageSize: size,
-    totalPages: Math.max(1, Math.ceil(total / size)),
+    totalPages,
     requestId: createRequestId(),
     reliable: raw.reliable !== false,
     message: raw.message ?? '',
