@@ -20,9 +20,13 @@ Première version publique.
 - Administration de l'index : statistiques, réindexation et synchronisation
   incrémentale.
 - Journal d'audit avec empreinte SHA-256 des requêtes.
+- Pagination serveur stable : total borné aux candidats rerankés et pages hors
+  limites ramenées à la dernière page.
 - Évaluation synthétique avec métriques et baselines.
 - Interface React/TypeScript avec recherche FR/AR, affichage RTL et explications
   détaillées.
+- Documentation OpenAPI 3 et Swagger UI.
+- Intégration continue GitHub Actions, Dependabot et modèles de contribution.
 - Documentation française et anglaise, limites connues et licence MIT.
 
 ### Sécurité

@@ -177,6 +177,49 @@ class SearchServiceTest {
     }
 
     @Test
+    void pagination_stable_et_total_coherent() {
+        SearchResponse full = searchService.search(SearchRequest.free(
+                "Benali", Set.of("A"), 0, 100, false));
+        int total = full.hits().size();
+        assertTrue(total >= 3, "le jeu de test doit contenir plusieurs homonymes");
+        assertEquals(total, full.totalHits());
+
+        SearchResponse first = searchService.search(SearchRequest.free(
+                "Benali", Set.of("A"), 0, 2, false));
+        SearchResponse second = searchService.search(SearchRequest.free(
+                "Benali", Set.of("A"), 1, 2, false));
+
+        assertEquals(total, first.totalHits());
+        assertEquals(total, second.totalHits());
+        assertEquals(0, first.page());
+        assertEquals(1, second.page());
+        assertEquals(2, first.hits().size());
+        assertEquals(2, second.hits().size());
+
+        List<String> firstIds = first.hits().stream().map(h -> h.person().id()).toList();
+        assertTrue(second.hits().stream()
+                .map(h -> h.person().id())
+                .noneMatch(firstIds::contains), "les pages ne doivent pas se chevaucher");
+    }
+
+    @Test
+    void page_hors_limites_est_ramenee_a_la_derniere_page() {
+        SearchResponse full = searchService.search(SearchRequest.free(
+                "Benali", Set.of("A"), 0, 100, false));
+        int total = full.hits().size();
+        assertTrue(total >= 3, "le jeu de test doit contenir plusieurs homonymes");
+        int lastPage = (total - 1) / 2;
+
+        SearchResponse response = searchService.search(SearchRequest.free(
+                "Benali", Set.of("A"), 99, 2, false));
+
+        assertEquals(lastPage, response.page());
+        assertEquals(total, response.totalHits());
+        assertFalse(response.hits().isEmpty());
+        assertTrue(response.hits().size() <= 2);
+    }
+
+    @Test
     void statistiques_index() {
         IndexManager.IndexStats stats = searchService.stats();
         assertTrue(stats.numDocs() >= 11);

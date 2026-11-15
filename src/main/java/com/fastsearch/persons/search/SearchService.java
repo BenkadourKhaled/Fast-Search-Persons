@@ -90,15 +90,19 @@ public final class SearchService {
             if (parsed.numericAmbiguity()) {
                 warnings.add("ambiguïté numérique : la date et l'identifiant ont tous deux été recherchés");
             }
-            int start = page * size;
+            // Seuls les candidats effectivement rerankés sont paginables. Utiliser
+            // totalHits Lucene exposerait des pages vides au-delà de candidateLimit.
+            int total = allHits.size();
+            int totalPages = total == 0 ? 0 : (total + size - 1) / size;
+            int effectivePage = totalPages == 0 ? 0 : Math.min(page, totalPages - 1);
+            int start = effectivePage * size;
             List<SearchHit> pageHits;
-            if (start >= allHits.size()) {
+            if (start >= total) {
                 pageHits = List.of();
             } else {
-                pageHits = allHits.subList(start, Math.min(start + size, allHits.size()));
+                pageHits = allHits.subList(start, Math.min(start + size, total));
             }
-            return new SearchResponse(pageHits, Math.max(allHits.size(), candidates.totalHits()),
-                    page, size, reliable, message, warnings);
+            return new SearchResponse(pageHits, total, effectivePage, size, reliable, message, warnings);
         } catch (IOException e) {
             throw new SearchException("Erreur d'accès à l'index Lucene", e);
         }

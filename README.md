@@ -22,6 +22,8 @@ Lucene 9.12. Le moteur ne rend jamais une « identification » : il classe des
 - [db/person_source_data.sql](db/person_source_data.sql) — export SQL des
   **196 personnes synthétiques** de `public.person_source` (UTF-8, 196 INSERT).
 - [CHANGELOG.md](CHANGELOG.md) — historique des versions.
+- [SECURITY.md](SECURITY.md) — politique de signalement des vulnérabilités.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — guide de contribution.
 - [LICENSE](LICENSE) — licence MIT du projet.
 
 ## Principes
@@ -161,6 +163,16 @@ Groupes : autorités `GROUP_xxx`.
 | GET | `/api/v1/admin/audit` | ADMIN |
 | POST | `/api/v1/eval/run` | ADMIN, ANALYST |
 
+### Documentation OpenAPI
+
+L'API est documentée interactivement avec OpenAPI 3 :
+
+- Swagger UI : <http://localhost:8080/swagger-ui.html>
+- document JSON : <http://localhost:8080/v3/api-docs>
+
+Swagger UI permet de saisir les identifiants HTTP Basic. Les endpoints métier
+restent protégés par les rôles `ADMIN`, `ANALYST` et `READER`.
+
 ## API de recherche
 
 ```bash
@@ -230,6 +242,22 @@ Réponse (extrait) :
 Champs de requête : `q`, `lastName`, `firstName`, `birthDate`, `birthPlace`,
 `page`, `size`, `includeExplanation`. Le client **ne peut pas** choisir ses
 groupes : ils sont déduits de son authentification.
+
+### Pagination
+
+`page` est indexé à partir de **0** et `size` est borné par
+`fastsearch.search.max-page-size` (100 par défaut). La réponse renvoie `total`,
+`page` et `size` ; `total` compte les candidats effectivement rerankés, dans la
+limite de `candidate-limit`. Une page hors limites est ramenée à la dernière
+page disponible, ce qui évite les pages vides après un changement de corpus.
+
+```bash
+curl -u sara.haddad@fastsearch.test:Sara-Lecteur-2026 \
+  'http://localhost:8080/api/v1/persons/search?q=Benali&page=0&size=10'
+```
+
+L'interface propose 10, 20, 50 ou 100 résultats par page et une navigation
+numérotée avec les pages précédente/suivante.
 
 ### Confiance
 
@@ -332,6 +360,9 @@ mvn test
 La suite couvre la normalisation et le dictionnaire, les clés phonétiques, les
 dates, le scoring, la synchronisation JDBC, l'évaluation, la sécurité, l'audit,
 l'API et les règles ArchUnit. État vérifié : **62 tests, 0 échec**.
+
+La CI GitHub Actions exécute `mvn verify` sur Java 17 à chaque push et pull
+request, puis publie le JAR exécutable comme artefact.
 
 ## Limites
 
