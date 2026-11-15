@@ -9,7 +9,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:1.27-alpine AS runtime
+FROM nginx:1.29-alpine AS runtime
 ENV BACKEND_UPSTREAM=http://backend:8080
 
 COPY nginx.conf /etc/nginx/templates/default.conf.template
