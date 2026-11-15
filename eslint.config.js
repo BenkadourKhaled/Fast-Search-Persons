@@ -19,6 +19,9 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      // Les effets de chargement initial déclenchent volontairement l'état
+      // "busy" avant l'appel réseau ; les données restent synchronisées par l'API.
+      'react-hooks/set-state-in-effect': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
